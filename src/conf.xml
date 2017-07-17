@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!--properties鏍囩鏍囩ず鍦ㄦXML鏂囦欢涓瀵瑰簲properties鏂囦欢杩涜寮曠敤 -->
+	<properties resource="jdbc.properties" />
+	
+	<!-- 缁橵O绫昏捣鍒悕锛堝湪鏈」鐩綋涓殑鍞竴ID鍙凤級锛屼緵鏈」鐩繘琛屽紩鐢�-->
+	<typeAliases>
+		<typeAlias alias="Dept" type="com.vo.Dept" />
+	</typeAliases>
+	
+	
+	<environments default="development">
+		<environment id="development">
+			<!-- SQL浜嬪姟绫诲瀷 -->
+			<transactionManager type="JDBC" />
+			
+			<!-- 閰嶇疆鏁版嵁搴撹繛鎺ヤ俊鎭�-->
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<!--
+			娉ㄥ唽deptMapper.xml鏂囦欢锛�
+			deptMapper.xml浣嶄簬com.mapping杩欎釜鍖呬笅锛屾墍浠esource鍐欐垚com/mapping/deptMapper.xml
+		-->
+		<mapper resource="com/mapping/deptMapper.xml" />
+	
+		<!--<mapper class="com.inter.DeptMapper" />
+		
+		-->
+		
+	</mappers>
+</configuration>
